@@ -12,10 +12,10 @@ public class HelloWorldController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String sayHello(ModelMap model) {
 		model.addAttribute("greeting", "Hello World from Spring 4 MVC");
-		return "welcome";
+		return "index";
 	}
 
-	@RequestMapping(value = "/helloagain", method = RequestMethod.GET)
+	@RequestMapping(value = "/securedResource", method = RequestMethod.GET)
 	public String sayHelloAgain(ModelMap model) {
 		model.addAttribute("greeting", "Hello World Again, from Spring 4 MVC");
 		return "welcome";
