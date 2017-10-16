@@ -23,7 +23,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	  http.authorizeRequests()
 		.antMatchers("/securedResource/**").access("hasRole('USER')")
 		.and()
-			  .formLogin(); //default spring provided form
+              .logout().permitAll().and()
+			  .formLogin().loginPage("/customLogin")
+      ; //default spring provided form
 
 	}
 }

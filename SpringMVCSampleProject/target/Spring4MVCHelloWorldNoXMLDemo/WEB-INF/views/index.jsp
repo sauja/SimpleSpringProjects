@@ -9,10 +9,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Home Page</title>
 </head>
 <body>
-Home page: Access to all
+Home page: Access to all<br><br><br>
 <a href="/securedResource" >Secured Resource</a>
 </body>
 </html>

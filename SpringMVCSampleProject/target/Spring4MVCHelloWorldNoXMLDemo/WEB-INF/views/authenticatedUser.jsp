@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: sauja
@@ -11,7 +12,10 @@
     <title>Title</title>
 </head>
 <body>
-${requestScope.get("user")}
-${user}
+
+<c:if test="${pageContext.request.userPrincipal.name != null}">
+    <h2>Welcome : ${pageContext.request.userPrincipal.name}
+        | <a href="<c:url value="/logout" />" > Logout</a></h2>
+</c:if>
 </body>
 </html>
