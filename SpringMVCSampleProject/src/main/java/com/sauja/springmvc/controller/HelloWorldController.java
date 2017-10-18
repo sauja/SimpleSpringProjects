@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.security.Principal;
 
 @Controller
 @RequestMapping("/")
@@ -21,23 +22,35 @@ public class HelloWorldController {
 		return "index";
 	}
 
-	@RequestMapping(value = "/customLogin",method = RequestMethod.GET)
+	@RequestMapping(value = "customLogin",method = RequestMethod.GET)
 	public String getCustomLoginPage(ModelMap model) {
-		model.addAttribute("greeting", "Hello World from Spring 4 MVC");
 		return "customLogin";
 	}
-	@RequestMapping(value = "/securedResource", method = RequestMethod.GET)
+
+	@RequestMapping(value = "securedResource", method = RequestMethod.GET)
 	public String sayHelloAgain(ModelMap model) {
+		System.out.println("abc");
+
 		model.addAttribute("greeting", "Hello World Again, from Spring 4 MVC");
-		return "welcome";
+		return "authenticatedUser";
 	}
-	@RequestMapping(value="/logout", method = RequestMethod.GET)
+	@RequestMapping(value="logout", method = RequestMethod.GET)
 	public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println("User logout");
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (auth != null){
 			new SecurityContextLogoutHandler().logout(request, response, auth);
 		}
 		return "redirect:/customLogin";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
 	}
 
+    @RequestMapping(value = "403",method = RequestMethod.GET)
+    public String get403Page(ModelMap model) {
+        return "403";
+    }
+
+    @RequestMapping(value = "admin",method = RequestMethod.GET)
+    public String getAdminPage(ModelMap model) {
+        return "admin";
+    }
 }

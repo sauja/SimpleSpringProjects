@@ -12,10 +12,12 @@
     <title>Title</title>
 </head>
 <body>
+Authenticated Page
 
 <c:if test="${pageContext.request.userPrincipal.name != null}">
     <h2>Welcome : ${pageContext.request.userPrincipal.name}
-        | <a href="<c:url value="/logout" />" > Logout</a></h2>
+        | <a href="<c:url value="/logout" />" > Logout</a></h2><br>
+    <a href="<c:url value="/admin" />" > Go to Admin Page</a>
 </c:if>
 </body>
 </html>

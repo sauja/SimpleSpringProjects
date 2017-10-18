@@ -1,9 +1,10 @@
-package com.sauja.springmvc.configuration;
+package com.sauja.springmvc.configuration.mvc;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
+import com.sauja.springmvc.configuration.MainConfiguration;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;

@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.sauja.springmvc")
+@ComponentScan(basePackages = "com.sauja.springmvc.*")
 public class MainConfiguration {
 	
 	@Bean
@@ -22,5 +22,6 @@ public class MainConfiguration {
 
 		return viewResolver;
 	}
+
 
 }
